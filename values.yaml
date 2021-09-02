@@ -5,23 +5,19 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  pullPolicy: IfNotPresent
+  repository: machines/filestash
+  # pullPolicy: IfNotPresent
+  # Recommended to be set to Always, as we have to use the "latest" tag.
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
+  # Annoyingly, the upstream Docker images are "just" pushes of master, and not
+  # a match with it's releases.
+  # That said, there hasn't been any releases for a while.
   tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
 
 podAnnotations: {}
 
