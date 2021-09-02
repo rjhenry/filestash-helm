@@ -1,0 +1,20 @@
+---
+stages:
+  - test
+
+helm-lint:
+  stage: test
+  image:
+    name: alpine/helm:latest
+    entrypoint: [""]
+  script:
+    - helm version
+    - helm dependency update
+    - helm lint --strict
+
+yamllint:
+  stage: test
+  image: pipelinecomponents/yamllint:latest
+  script:
+    - yamllint --version
+    - yamllint --strict .
