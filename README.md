@@ -76,39 +76,39 @@ The following table lists the configurable parameters for this chart and their d
 
 | Parameter                                       | Description                                                           | Default                                     |
 | ------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------|
-| `replicaCount`                                  | The desired number of FileStash pods                                  | `1`                                         |
-| `image.repository`                              | FileStash container image repository                                  | `machines/filestash`                        |
-| `image.tag`                                     | FileStash container image tag                                         | `""`                                        |
-| `image.pullPolicy`                              | FileStash container image pull policy                                 | `Always`                                    |
-| `imagePullSecrets`                              | Array of maps for [Image Pull Secrets]                                | `[]`                                        |
-| `nameOverride`                                  | Override the application name (`filestash`) used throughout the chart | `""`                                        |
-| `fullnameOverride`                              | An override for the full release name                                 | `""`                                        |
-| `podAnnotations`                                | Map of any annotations that should be added to the pod(s)             | `{}`                                        |
-| `podSecurityContext`                            | [SecurityContext] for the FileStash pod(s)                            | `{}` (see [`values.yaml`])                  |
-| `securityContext`                               | [SecurityContext] for the FileStash container(s)                      | `{}` (see [`values.yaml`])                  |
-| `service.type`                                  | [Service] type for the FileStash service                              | `ClusterIP`                                 |
-| `service.port`                                  | [Service] port for the FileStash service                              | `80`                                        |
-| `ingress.enabled`                               | Whether an `Ingress` resource should be automatically created         | `false`                                     |
-| `ingress.className`                             | IngressClass name for the created `Ingress` resource                  | `""`                                        |
-| `ingress.annotations`                           | Any annotations that should be applied to the `Ingress` resource      | `{}`                                        |
-| `ingress.hosts`                                 | Hosts and paths for the `Ingress` resource                            | `[{host:"chart-example.local",paths[{path:"/",pathType"ImplementationSpecific}]}]` |
-| `ingress.tls`                                   | TLS settings for the `Ingress` resource                               | `[]`                                        |
-| `resources`                                     | Configure resource requests or limits for FileStash                   | `{}`                                        |
+| `affinity`                                      | Affinity settings for pod assignment                                  | `{}`                                        |
 | `autoscaling.enabled`                           | Whether to enable the HorizontalPodAutoscaler                         | `false`                                     |
-| `autoscaling.minReplicas`                       | Minimum number of replicas when autoscaling is enabled                | `1`                                         |
 | `autoscaling.maxReplicas`                       | Maximum number of replicas when autoscaling is enabled                | `100`                                       |
+| `autoscaling.minReplicas`                       | Minimum number of replicas when autoscaling is enabled                | `1`                                         |
 | `autoscaling.targetCPUUtilizationPercentage`    | Target CPU utilisation percentage for autoscaling                     | `80`                                        |
 | `autoscaling.targetMemoryUtilizationPercentage` | Target memory utilisation percentage for autoscaling                  | `null`                                      |
+| `fullnameOverride`                              | An override for the full release name                                 | `""`                                        |
+| `image.pullPolicy`                              | FileStash container image pull policy                                 | `Always`                                    |
+| `image.repository`                              | FileStash container image repository                                  | `machines/filestash`                        |
+| `image.tag`                                     | FileStash container image tag                                         | `""`                                        |
+| `imagePullSecrets`                              | Array of maps for [Image Pull Secrets]                                | `[]`                                        |
+| `ingress.annotations`                           | Any annotations that should be applied to the `Ingress` resource      | `{}`                                        |
+| `ingress.className`                             | IngressClass name for the created `Ingress` resource                  | `""`                                        |
+| `ingress.enabled`                               | Whether an `Ingress` resource should be automatically created         | `false`                                     |
+| `ingress.hosts`                                 | Hosts and paths for the `Ingress` resource                            | `[{host:"chart-example.local",paths[{path:"/",pathType"ImplementationSpecific}]}]` |
+| `ingress.tls`                                   | TLS settings for the `Ingress` resource                               | `[]`                                        |
+| `nameOverride`                                  | Override the application name (`filestash`) used throughout the chart | `""`                                        |
 | `nodeSelector`                                  | Node labels for pod assignment                                        | `{}`                                        |
-| `tolerations`                                   | Toleration labels for pod assignment                                  | `[]`                                        |
-| `affinity`                                      | Affinity settings for pod assignment                                  | `{}`                                        |
+| `persistence.accessMode`                        | Access mode for the volume                                            | `ReadWriteOnce`                             |
 | `persistence.enabled`                           | Enable storage persistence for configuration                          | `false`                                     |
 | `persistence.existingClaim`                     | Use an existing `PersistentVolumeClaim` instead of creating one       | `""`                                        |
-| `persistence.subPath`                           | Mount a sub-path of the volume into the container, not the root       | `""`                                        |
-| `persistence.storageClass`                      | Set the storage class of the PVC (use `-` to disable provisioning)    | `""`                                        |
 | `persistence.selector`                          | Set the selector for PVs, if desired                                  | `{}`                                        |
-| `persistence.accessMode`                        | Access mode for the volume                                            | `ReadWriteOnce`                             |
 | `persistence.size`                              | Size of persistent volume to request                                  | `32Mi`                                      |
+| `persistence.storageClass`                      | Set the storage class of the PVC (use `-` to disable provisioning)    | `""`                                        |
+| `persistence.subPath`                           | Mount a sub-path of the volume into the container, not the root       | `""`                                        |
+| `podAnnotations`                                | Map of any annotations that should be added to the pod(s)             | `{}`                                        |
+| `podSecurityContext`                            | [SecurityContext] for the FileStash pod(s)                            | `{}` (see [`values.yaml`])                  |
+| `replicaCount`                                  | The desired number of FileStash pods                                  | `1`                                         |
+| `resources`                                     | Configure resource requests or limits for FileStash                   | `{}`                                        |
+| `securityContext`                               | [SecurityContext] for the FileStash container(s)                      | `{}` (see [`values.yaml`])                  |
+| `service.port`                                  | [Service] port for the FileStash service                              | `80`                                        |
+| `service.type`                                  | [Service] type for the FileStash service                              | `ClusterIP`                                 |
+| `tolerations`                                   | Toleration labels for pod assignment                                  | `[]`                                        |
 
 [Image Pull Secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 [SecurityContext]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
