@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ include "filestash.fullname" . }}-media
+  name: {{ include "filestash.fullname" . }}-config
   labels:
 {{ include "filestash.labels" . | indent 4 }}
 spec:
