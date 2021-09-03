@@ -102,6 +102,13 @@ The following table lists the configurable parameters for this chart and their d
 | `nodeSelector`                                  | Node labels for pod assignment                                        | `{}`                                        |
 | `tolerations`                                   | Toleration labels for pod assignment                                  | `[]`                                        |
 | `affinity`                                      | Affinity settings for pod assignment                                  | `{}`                                        |
+| `persistence.enabled`                           | Enable storage persistence for configuration                          | `false`                                     |
+| `persistence.existingClaim`                     | Use an existing `PersistentVolumeClaim` instead of creating one       | `""`                                        |
+| `persistence.subPath`                           | Mount a sub-path of the volume into the container, not the root       | `""`                                        |
+| `persistence.storageClass`                      | Set the storage class of the PVC (use `-` to disable provisioning)    | `""`                                        |
+| `persistence.selector`                          | Set the selector for PVs, if desired                                  | `{}`                                        |
+| `persistence.accessMode`                        | Access mode for the volume                                            | `ReadWriteOnce`                             |
+| `persistence.size`                              | Size of persistent volume to request                                  | `32Mi`                                      |
 
 [Image Pull Secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 [SecurityContext]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
