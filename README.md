@@ -120,6 +120,16 @@ install` or provide a YAML file containing the values for the above parameters.
 See [`values.yaml`](./values.yaml) for an authoritative reference with
 documentation.
 
+## Contributing
+If you would like to contribute to this project, please create issues either on
+[GitHub](https://github.com/rjhenry/filestash-helm/issues) or, if you have an
+account, on my
+[GitLab](https://gitlab.rickhenry.uk/rjh/filestash-helm/-/issues). If there are
+changes you wish to submit, create a pull request on GitHub, from which I will
+merge changes to GitLab.
+Alternatively, feel free to fork for your own use, subject to the terms of the
+license below.
+
 ## License
 
 > The following notice applies to all files contained within this Helm Chart and
@@ -138,4 +148,3 @@ documentation.
 > WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 > See the License for the specific language governing permissions and
 > limitations under the License.
-
